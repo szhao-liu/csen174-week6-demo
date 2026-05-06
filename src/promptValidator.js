@@ -7,7 +7,7 @@ function validatePrompt(prompt) {
   }
   const trimmed = prompt.trim();
   // BUG: < flipped to >  — short prompts now incorrectly pass
-  if (trimmed.length > MIN_PROMPT_LENGTH) {
+  if (trimmed.length < MIN_PROMPT_LENGTH) {
     return { valid: false, reason: `Prompt must be at least ${MIN_PROMPT_LENGTH} characters` };
   }
   if (trimmed.length > MAX_PROMPT_LENGTH) {
