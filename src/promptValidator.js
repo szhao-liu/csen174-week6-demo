@@ -1,12 +1,3 @@
-/**
- * Tiny prompt-validation helper used by the demo. Lives in src/ so it's
- * reachable from server.js if you decide to wire it up later.
- *
- * The CI walkthrough breaks one of these functions on purpose to show
- * a red ✗ on the PR, then restores it for green ✓ — keeping all the
- * "real" Sprint 1 code untouched.
- */
-
 const MIN_PROMPT_LENGTH = 3;
 const MAX_PROMPT_LENGTH = 500;
 
@@ -15,7 +6,8 @@ function validatePrompt(prompt) {
     return { valid: false, reason: "Prompt must be a string" };
   }
   const trimmed = prompt.trim();
-  if (trimmed.length < MIN_PROMPT_LENGTH) {
+  // BUG: < flipped to >  — short prompts now incorrectly pass
+  if (trimmed.length > MIN_PROMPT_LENGTH) {
     return { valid: false, reason: `Prompt must be at least ${MIN_PROMPT_LENGTH} characters` };
   }
   if (trimmed.length > MAX_PROMPT_LENGTH) {
