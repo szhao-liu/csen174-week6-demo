@@ -1,0 +1,38 @@
+name: CI
+
+# Part 1 of Week 6: run the W5 test suite on every PR to main and on every
+# push to main. Real-API integration tests are excluded (they cost money and
+# need an OpenAI key) — they live in ai-behavior-real-api.test.js and are
+# already wired to skip themselves when OPENAI_API_KEY is unset, but we
+# also exclude them by path here for belt-and-suspenders.
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies (clean, lockfile-based)
+        run: npm ci
+
+      - name: Run the W5 unit test suite
+        run: npm run test:unit
+        env:
+          # Demonstrates the secrets pattern from Part 1.
+          # Stored in repo Settings > Secrets and variables > Actions.
+          # Never appears in code or in this file.
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

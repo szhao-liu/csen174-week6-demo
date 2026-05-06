@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Story Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Anime Story Generator</h1>
+            <p class="subtitle">Create your own anime series with AI in vintage Japanese style (1970s-1990s)</p>
+            <p class="style-badge">📺 Classic Hand-Drawn Aesthetic • 🎞️ Retro Anime Art</p>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="prompt-container">
+                    <label for="userPrompt">What happens in this scene?</label>
+                    <textarea
+                        id="userPrompt"
+                        placeholder="Describe your scene idea... (e.g., 'A young warrior discovers a magical sword in an ancient temple')"
+                        rows="4"
+                    ></textarea>
+
+                    <div id="suggestionBox" class="suggestion-box hidden">
+                        <div class="suggestion-label">AI's suggestion for next scene:</div>
+                        <div id="suggestionText" class="suggestion-text"></div>
+                        <button id="useSuggestion" class="btn btn-secondary">Use This Idea</button>
+                    </div>
+
+                    <div class="button-group">
+                        <button id="generateBtn" class="btn btn-primary">
+                            <span class="btn-text">Generate Scene</span>
+                            <span class="btn-loading hidden">Generating...</span>
+                        </button>
+                        <button id="clearBtn" class="btn btn-outline">Clear Story</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Scene Display -->
+            <div id="currentScene" class="current-scene hidden">
+                <h2>Latest Scene</h2>
+                <div class="scene-card">
+                    <img id="currentImage" src="" alt="Generated anime scene">
+                    <div class="scene-info">
+                        <h3 id="currentTitle"></h3>
+                        <p id="currentNarrative" class="narrative"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story Series Timeline -->
+            <div id="storyTimeline" class="story-timeline hidden">
+                <h2>Your Story Series (<span id="sceneCount">0</span> scenes)</h2>
+                <div id="timelineContent" class="timeline-content"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by GPT-4 & DALL-E 3 • Vintage Anime Style</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

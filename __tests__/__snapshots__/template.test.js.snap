@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Tests should match snapshot 1`] = `
+{
+  "imagePrompt": "Anime style illustration of a young warrior in traditional armor standing in an ancient stone temple, dramatic lighting streaming through broken ceiling, holding a glowing magical katana with mystical runes, detailed background with ancient pillars and vines, high quality digital art",
+  "narrative": "In the depths of the forgotten temple, Kai's fingers wrapped around the hilt of an ancient blade. As the sword awakened, ethereal light danced across the walls, revealing prophecies written in a language older than time itself.",
+  "nextSuggestion": "The temple begins to collapse as the sword's removal triggers an ancient trap, and mysterious guardians awaken",
+}
+`;
